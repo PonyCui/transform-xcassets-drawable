@@ -17,6 +17,9 @@ function doTransform(imageset) {
         else if (it.endsWith("@3x.png")) {
             fs.createReadStream(imageset + "/" + it).pipe(fs.createWriteStream(to + "/drawable-xxhdpi/" + formatName(imageset.split("/").pop().replace(".imageset", "")) + ".png"));
         }
+        else if (it.endsWith(".png")) {
+            fs.createReadStream(imageset + "/" + it).pipe(fs.createWriteStream(to + "/drawable/" + formatName(imageset.split("/").pop().replace(".imageset", "")) + ".png"));
+        }
     })
 }
 
